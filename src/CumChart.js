@@ -58,10 +58,13 @@ class CumChart extends PureComponent<Props> {
 
     const now = startOfMonth(new Date());
     const deathYear = addYears(now, 100 - age);
-    const numBuckets =
+    const maxBuckets = 1800;
+    const numBuckets = Math.min(
       downPayment > 0
         ? Math.ceil(debt / downPayment)
-        : differenceInCalendarMonths(deathYear, now);
+        : differenceInCalendarMonths(deathYear, now),
+      maxBuckets
+    );
     const series = new Array(numBuckets);
 
     for (let i = 0; i < series.length; i++) {
@@ -115,7 +118,6 @@ class CumChart extends PureComponent<Props> {
     // .filter(bucket => bucket.debt > 0);
   }
   render() {
-    console.log("render chart");
     const { amount, age, retirementAge } = this.props;
     const data = this.buildData();
     const { date, ...lastValues } = data[data.length - 1];
@@ -125,7 +127,7 @@ class CumChart extends PureComponent<Props> {
         const debtQuoteIdx = data.findIndex(
           ({ debt }) => debt <= amount * debtQuote
         );
-        if (debtQuoteIdx) {
+        if (debtQuoteIdx > 0) {
           acc.push(
             <ReferenceLine
               key={`ref-${debtQuote}`}
