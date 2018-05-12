@@ -101,6 +101,7 @@ class App extends Component {
           downPayment={downPayment}
           retirementAge={retirement}
         />
+        (Proj = Projected cumulative interest cost if no down payments are made)
       </Fragment>
     );
   }
