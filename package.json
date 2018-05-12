@@ -1,0 +1,24 @@
+{
+  "name": "downpayment",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "1.1.4"
+  },
+  "dependencies": {
+    "date-fns": "^1.29.0",
+    "formik": "^0.11.11",
+    "lodash": "^4.17.10",
+    "numeral": "^2.0.6",
+    "react": "^16.3.2",
+    "react-date-range": "^1.0.0-alpha5",
+    "react-dom": "^16.3.2",
+    "recharts": "^1.0.0-beta.10"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
